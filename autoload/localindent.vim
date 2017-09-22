@@ -110,6 +110,10 @@ endfunction
 function! s:update(force) abort
   let force = a:force
 
+  if getline('.') ==# ''
+    return
+  endif
+
   if getline('.') =~# '^\s*$'
     let force = 1
     let cur_line = line('.')
